@@ -10,8 +10,8 @@ import java.io.File;
 public class ScreenShot
 {
     public static void Takescreen(WebDriver driver, String sname) throws Throwable{
-        String path="E:\\Aqua_Automation\\Screenshots\\"+sname+".png";
+        String path = System.getProperty("user.dir");
         File screen=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(screen, new File(path));
+        FileUtils.copyFile(screen, new File(path+"\\Screenshots\\"+sname+".png"));
     }
 }

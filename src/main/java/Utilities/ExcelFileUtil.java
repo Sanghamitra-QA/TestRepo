@@ -11,7 +11,8 @@ public class ExcelFileUtil
         // to read excel path
     public ExcelFileUtil() throws Throwable
     {
-        FileInputStream fis=new FileInputStream("C:\\Users\\rinky\\IdeaProjects\\Muvi_Automation\\InputData\\InputSheet.xlsx");
+        String path = System.getProperty("user.dir");
+        FileInputStream fis=new FileInputStream(path+"\\InputData\\InputSheet.xlsx");
         wb= WorkbookFactory.create(fis);
     }
         //count no of rows from sheet
@@ -91,7 +92,8 @@ public class ExcelFileUtil
             //set cell style
             rownum.getCell(column).setCellStyle(style);
         }
-        FileOutputStream fos=new FileOutputStream("C:\\Users\\rinky\\IdeaProjects\\Muvi_Automation\\TestOutput\\Results.xlsx");
+            String path = System.getProperty("user.dir");
+        FileOutputStream fos=new FileOutputStream(path+"\\TestOutput\\Results.xlsx");
         wb.write(fos);
         fos.close();
         //wb.close();

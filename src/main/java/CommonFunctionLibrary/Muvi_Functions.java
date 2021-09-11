@@ -24,7 +24,8 @@ public class Muvi_Functions
     {
         if(PropertyFileUtil.getValueForKey("browser").equalsIgnoreCase("chrome"))
         {
-            System.setProperty("webdriver.chrome.driver", "C:\\Users\\rinky\\IdeaProjects\\Muvi_Automation\\ChromeDriver\\chromedriver.exe");
+            String path = System.getProperty("user.dir");
+            System.setProperty("webdriver.chrome.driver", path+"\\ChromeDriver\\chromedriver.exe");
             driver=new ChromeDriver();
         }
         else if(PropertyFileUtil.getValueForKey("browser").equalsIgnoreCase("firefox"))
@@ -220,8 +221,8 @@ public class Muvi_Functions
         WebElement banner=driver.findElement(By.xpath("//form[@id=\"topbannerForm\"]"));
         if (banner.isDisplayed())
         {
-            //driver.findElement(By.xpath("//input[@value=\"Upload File\" and @class=\"btn btn-default-with-bg btn-file btn-sm\"]")).click();
-            driver.findElement(By.xpath("//*[@id=\"celeb_pic1\"]")).sendKeys("C:\\Users\\rinky\\IdeaProjects\\Muvi_Automation\\InputFiles\\TopBanner.jpg");;
+            String path = System.getProperty("user.dir");
+            driver.findElement(By.xpath("//*[@id=\"celeb_pic1\"]")).sendKeys(path+"\\InputFiles\\TopBanner.jpg");
             Thread.sleep(2000);
             driver.findElement(By.xpath("//*[@id=\"topbanner_submit_btn\"]")).click();
             Thread.sleep(4000);
@@ -237,8 +238,9 @@ public class Muvi_Functions
         WebElement banner=driver.findElement(By.xpath("(//input[@class=\"btn btn-default-with-bg btn-sm\"])[1]"));
         if (banner.isDisplayed())
         {
+            String path = System.getProperty("user.dir");
             //driver.findElement(By.xpath("//input[@value=\"Upload File\" and @class=\"btn btn-default-with-bg btn-file btn-sm\"]")).click();
-            driver.findElement(By.xpath("//*[@id=\"celeb_pic\"]")).sendKeys("C:\\Users\\rinky\\IdeaProjects\\Muvi_Automation\\InputFiles\\Poster.png");
+            driver.findElement(By.xpath("//*[@id=\"celeb_pic\"]")).sendKeys(path+"\\InputFiles\\Poster.png");
             Thread.sleep(2000);
             driver.findElement(By.xpath("(//button[@class=\"btn btn-primary\" and text()=\"Next\"])[1]")).click();
             Thread.sleep(4000);
@@ -253,8 +255,8 @@ public class Muvi_Functions
         WebElement banner=driver.findElement(By.xpath("(//*[@class=\"btn btn-default-with-bg btn-sm\" and @type=\"button\"])[3]"));
         if (banner.isDisplayed())
         {
-            //driver.findElement(By.xpath("//input[@value=\"Upload File\" and @class=\"btn btn-default-with-bg btn-file btn-sm\"]")).click();
-            driver.findElement(By.xpath("//input[@name=\"Filedata_cast\"]")).sendKeys("C:\\Users\\rinky\\IdeaProjects\\Muvi_Automation\\InputFiles\\ProfilePicture.jpg");;
+            String path = System.getProperty("user.dir");
+            driver.findElement(By.xpath("//input[@name=\"Filedata_cast\"]")).sendKeys(path+"\\InputFiles\\ProfilePicture.jpg");;
             Thread.sleep(2000);
             driver.findElement(By.xpath("//button[@id=\"next\"]")).click();
             Thread.sleep(4000);
@@ -269,8 +271,9 @@ public class Muvi_Functions
         WebElement banner=driver.findElement(By.xpath("(//input[@value=\"Upload File\"])[4]"));
         if (banner.isDisplayed())
         {
+            String path = System.getProperty("user.dir");
             //driver.findElement(By.xpath("//input[@value=\"Upload File\" and @class=\"btn btn-default-with-bg btn-file btn-sm\"]")).click();
-            driver.findElement(By.xpath("//*[@id=\"videofile\"]")).sendKeys("C:\\Users\\rinky\\IdeaProjects\\Muvi_Automation\\InputFiles\\videoplayback.mp4");;
+            driver.findElement(By.xpath("//*[@id=\"videofile\"]")).sendKeys(path+"\\InputFiles\\videoplayback.mp4");
             Thread.sleep(2000);
             driver.findElement(By.xpath("//button[@class=\"confirm\"]")).click();
             Thread.sleep(5000);
@@ -282,8 +285,6 @@ public class Muvi_Functions
         String parent=driver.getWindowHandle();
 
         Set<String> s=driver.getWindowHandles();
-
-// Now iterate using Iterator
         Iterator<String> I1= s.iterator();
 
         while(I1.hasNext())
